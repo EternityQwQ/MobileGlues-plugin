@@ -1,0 +1,65 @@
+name: MobileGlues
+
+on:
+  push:
+    branches: 
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Set repository name as env variable
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android NDK and CMake
+        run: |
+          yes | sdkmanager --licenses >/dev/null 2>&1 || true
+          sdkmanager "ndk;27.3.13750724" "cmake;3.31.6"
+          echo "ndk.dir=$ANDROID_HOME/ndk/27.3.13750724" >> local.properties
+          "$ANDROID_HOME/cmake/3.31.6/bin/cmake" --version
+
+      - name: Patch MobileGlues submodule CMake version
+        run: |
+          # Submodule pins cmake version = "3.22.1" which is too old for its own
+          # CMakeLists.txt (requires 3.28.0+). Bump to installed 3.31.6.
+          sed -i 's/version = "3.22.1"/version = "3.31.6"/' MobileGlues/build.gradle.kts
+          grep -n 'version =' MobileGlues/build.gradle.kts
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Build apk
+        run: ./gradlew assembleRelease
+        env:
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Upload apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.repository_name }}_${{ env.date_today }}_${{ github.sha }}
+          path: app/build/outputs/apk/release/

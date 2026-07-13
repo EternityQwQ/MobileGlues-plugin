@@ -1,0 +1,66 @@
+name: Submodule Sync
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Get current submodule commit
+        id: current
+        run: |
+          CURRENT=$(git ls-tree HEAD MobileGlues | awk '{print $3}')
+          echo "current_commit=$CURRENT" >> $GITHUB_OUTPUT
+          echo "Current submodule commit: $CURRENT"
+
+      - name: Fetch latest commit from remote main
+        id: latest
+        run: |
+          cd MobileGlues
+          git fetch origin main
+          LATEST=$(git rev-parse origin/main)
+          echo "latest_commit=$LATEST" >> $GITHUB_OUTPUT
+          echo "Latest remote commit on main: $LATEST"
+
+      - name: Check for updates
+        id: changes
+        run: |
+          if [ "${{ steps.current.outputs.current_commit }}" = "${{ steps.latest.outputs.latest_commit }}" ]; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Submodule is already up to date. No update needed."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Update available: ${{ steps.current.outputs.current_commit }} -> ${{ steps.latest.outputs.latest_commit }}"
+          fi
+
+      - name: Update submodule to latest commit
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          cd MobileGlues
+          git checkout origin/main
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git add MobileGlues
+          git commit -m "chore: update MobileGlues submodule to latest commit on main
+
+Update from ${{ steps.current.outputs.current_commit }}
+        to ${{ steps.latest.outputs.latest_commit }}"
+          git push
