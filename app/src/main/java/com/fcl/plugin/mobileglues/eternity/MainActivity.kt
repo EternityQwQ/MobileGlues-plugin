@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         setContentView(binding.root)
         setSupportActionBar(binding.appBar)
         setupSpinners()
+        setupDisabledControls()
 
         binding.openOptions.setOnClickListener {
             if (hasMgDirectoryAccess()) {
@@ -177,6 +178,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
         binding.spinnerCustomGlVersion.adapter =
             ArrayAdapter(this, R.layout.spinner, ArrayList(glVersionMap.keys))
+    }
+
+    // ---- 禁用控件交互 ----
+    // XML 的 enabled/clickable/focusable 对 Spinner 下拉点击无效，
+    // 需通过 onTouchListener 拦截触摸事件才能真正阻止展开下拉选项。
+    private fun setupDisabledControls() {
+        // 拦截触摸事件，阻止 ANGLE、Depth Clear 修复 Spinner 展开下拉
+        val touchBlocker = View.OnTouchListener { _, _ -> true }
+        binding.spinnerAngle.setOnTouchListener(touchBlocker)
+        binding.angleClearWorkaround.setOnTouchListener(touchBlocker)
+        // 拦截 FSR1、ARB_compute_shader 开关的滑动与点击
+        binding.switchEnableFsr1.setOnTouchListener(touchBlocker)
+        binding.switchExtCs.setOnTouchListener(touchBlocker)
     }
 
     // ---- 权限检查 ----
