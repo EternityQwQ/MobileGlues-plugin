@@ -1,7 +1,7 @@
 name: Submodule Sync
 
 on:
-  workflow_dispatch:
+   workflow_dispatch:
 
 permissions:
   contents: write
