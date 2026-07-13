@@ -74,13 +74,3 @@ Third party components
 ====
 请参阅 [MobileGLES-Wrapper 源码仓库](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main) 了解渲染器所使用的第三方组件信息。
 
-Check signature of your release
-====
-本节用于帮助您识别 APK 是否为官方发布版本。
-
-在 Android build-tools 中找到 `apksigner`，然后运行以下命令：
-```bash
-apksigner verify --print-certs path/to/MobileGLESWrapper-plugin.apk
-```
-
-此外，`pub.cer` 和 `pub.pem` 公钥文件也已提供，您可以使用任意工具对照这些文件校验 APK 签名。
