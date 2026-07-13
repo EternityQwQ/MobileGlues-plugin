@@ -134,7 +134,7 @@ static std::string create_context_and_query() {
         }
     }
 
-    out << "Is MobileGlues (>=1.3.3): " << (g_MGQueryCapability.HasMobileGluesExt ? "Yes\n" : "No\n");
+    out << "Is MobileGLES (>=1.3.3): " << (g_MGQueryCapability.HasMobileGluesExt ? "Yes\n" : "No\n");
 
     const GLubyte* renderer = p_glGetString(GL_RENDERER);
     const GLubyte* version = p_glGetString(GL_VERSION);
@@ -199,7 +199,7 @@ JNIEXPORT jstring JNICALL
 Java_com_fcl_plugin_mobileglues_MGInfoGetter_getMobileGluesGLInfo(JNIEnv *env,
                                                                           jobject thiz) {
     std::string res = create_context_and_query();
-    printf("MobileGlues GL Info: \n%s", res.c_str());
+    printf("MobileGLES GL Info: \n%s", res.c_str());
     return env->NewStringUTF(res.c_str());
 }
 

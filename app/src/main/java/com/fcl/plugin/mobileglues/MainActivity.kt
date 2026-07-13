@@ -306,13 +306,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         invalidateOptionsMenu()
 
         binding.apply {
-            spinnerAngle.onItemSelectedListener = itemListener
+            // 以下三项 UI 已禁用，不再注册监听器
+            // spinnerAngle.onItemSelectedListener = itemListener
             spinnerNoError.onItemSelectedListener = itemListener
             spinnerMultidrawMode.onItemSelectedListener = itemListener
             spinnerCustomGlVersion.onItemSelectedListener = itemListener
-            angleClearWorkaround.onItemSelectedListener = itemListener
+            // angleClearWorkaround.onItemSelectedListener = itemListener
 
-            switchExtCs.setOnCheckedChangeListener(checkedListener)
+            // switchExtCs.setOnCheckedChangeListener(checkedListener)
             switchExtTimerQuery.setOnCheckedChangeListener(checkedListener)
             switchExtDirectStateAccess.setOnCheckedChangeListener(checkedListener)
             switchEnableFsr1.setOnCheckedChangeListener(checkedListener)
@@ -352,11 +353,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         if (!isSpinnerInitialized || config == null) return
 
         when (adapterView.id) {
-            R.id.spinner_angle -> handleAngleSelection(position)
+            // R.id.spinner_angle -> handleAngleSelection(position) // UI 已禁用
             R.id.spinner_no_error -> config?.enableNoError = position
             R.id.spinner_multidraw_mode -> config?.multidrawMode = position
             R.id.spinner_custom_gl_version -> handleCustomGLVersionSelection(position)
-            R.id.angle_clear_workaround -> handleAngleClearWorkaroundSelection(position)
+            // R.id.angle_clear_workaround -> handleAngleClearWorkaroundSelection(position) // UI 已禁用
         }
     }
 
@@ -419,13 +420,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         if (config == null) return
 
         when (buttonView.id) {
-            R.id.switch_ext_cs -> handleSwitchWithWarning(
-                isChecked = isChecked,
-                warningMsgRes = R.string.warning_ext_cs_enable,
-                onConfirm = { config?.enableExtComputeShader = 1 },
-                onCancel = { config?.enableExtComputeShader = 0 },
-                button = buttonView
-            )
+            // R.id.switch_ext_cs -> handleSwitchWithWarning( // UI 已禁用，默认启用
+            //     isChecked = isChecked,
+            //     warningMsgRes = R.string.warning_ext_cs_enable,
+            //     onConfirm = { config?.enableExtComputeShader = 1 },
+            //     onCancel = { config?.enableExtComputeShader = 0 },
+            //     button = buttonView
+            // )
 
             R.id.switch_enable_fsr1 -> handleSwitchWithWarning(
                 isChecked = isChecked,
@@ -520,7 +521,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         }.start()
     }
 
-    // ---- 删除 MobileGlues ----
+    // ---- 删除 MobileGLES ----
     private fun showRemoveConfirmationDialog() {
         showCountdownWarningDialog(
             R.string.remove_mg_files_message,
