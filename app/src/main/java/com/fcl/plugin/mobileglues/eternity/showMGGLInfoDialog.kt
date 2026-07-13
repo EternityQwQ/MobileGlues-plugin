@@ -1,8 +1,8 @@
-package com.fcl.plugin.mobileglues
+package com.fcl.plugin.mobileglues.eternity
 
 import android.content.Context
 import android.widget.TextView
-import com.fcl.plugin.mobileglues.settings.MGConfig
+import com.fcl.plugin.mobileglues.eternity.settings.MGConfig
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 object MGInfoGetter {

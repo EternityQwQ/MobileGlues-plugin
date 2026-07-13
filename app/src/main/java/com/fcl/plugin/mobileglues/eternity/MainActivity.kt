@@ -1,4 +1,4 @@
-package com.fcl.plugin.mobileglues
+package com.fcl.plugin.mobileglues.eternity
 
 import android.Manifest
 import android.content.DialogInterface
@@ -37,10 +37,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.fcl.plugin.mobileglues.databinding.ActivityMainBinding
-import com.fcl.plugin.mobileglues.settings.MGConfig
-import com.fcl.plugin.mobileglues.utils.Constants
-import com.fcl.plugin.mobileglues.utils.toast
+import com.fcl.plugin.mobileglues.eternity.databinding.ActivityMainBinding
+import com.fcl.plugin.mobileglues.eternity.settings.MGConfig
+import com.fcl.plugin.mobileglues.eternity.utils.Constants
+import com.fcl.plugin.mobileglues.eternity.utils.toast
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar

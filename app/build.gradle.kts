@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.fcl.plugin.mobileglues"
+    namespace = "com.fcl.plugin.mobileglues.eternity"
     compileSdk = 36
 
     ndkVersion = "27.3.13750724"
 
     defaultConfig {
-        applicationId = "com.fcl.plugin.mobileglues"
+        applicationId = "com.fcl.plugin.mobileglues.eternity"
         minSdk = 26
         targetSdk = 36
         versionCode = 1350

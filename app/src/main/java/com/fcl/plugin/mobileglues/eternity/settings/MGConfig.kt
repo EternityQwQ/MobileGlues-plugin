@@ -1,7 +1,7 @@
-package com.fcl.plugin.mobileglues.settings
+package com.fcl.plugin.mobileglues.eternity.settings
 
 import android.content.Context
-import com.fcl.plugin.mobileglues.utils.Constants
+import com.fcl.plugin.mobileglues.eternity.utils.Constants
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser

@@ -1,4 +1,4 @@
-package com.fcl.plugin.mobileglues
+package com.fcl.plugin.mobileglues.eternity
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.core.net.toUri
-import com.fcl.plugin.mobileglues.settings.MGConfig
+import com.fcl.plugin.mobileglues.eternity.settings.MGConfig
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
