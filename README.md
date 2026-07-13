@@ -1,36 +1,54 @@
-MobileGLES-Wrapper Plugin
+MobileGLESWrapper Plugin
 ====
 
 > [!WARNING]
+> **此项目完全由 ai 驱动开发**
+
+# MobileGLESWrapper
+
+> **注意：这是非官方版本（Unofficial Fork）**
 >
-> **This repository may contain unreleased Dev versions**
+> 本项目基于 [MobileGlues](https://github.com/MobileGL-Dev/MobileGlues) 修改而来，并非官方发布版本。
+> 官方项目请访问：https://github.com/MobileGL-Dev/MobileGlues
 >
-> If you are a regular user, **do not use these versions**, as they may cause **serious rendering issues**.
-> Please visit the release page to get the latest stable release.
+> 本版本将项目名称及相关标识从 `MobileGlues` 修改为 `MobileGLESWrapper`，其余内容可能与官方版本存在差异。请勿向官方项目提交与本版本相关的 Issue 或 PR。
 
-This is the Android plugin project for the **MobileGLES** renderer, which wraps the [MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main) as a Git submodule.
+---
 
-The plugin integrates the MobileGLES renderer into the FCL launcher, providing an OpenGL ES translation layer for running desktop GL applications on Android devices.
+**MobileGLESWrapper**（原 MobileGlues，意为 "(on) Mobile, GL uses ES"）是一个运行在 OpenGL ES 3.2 之上的 GL 实现，主要面向 Minecraft: Java Edition 的运行场景。
 
-## Submodule
+> **注意：本项目已放弃对 OpenGL ES 3.1 及更低版本的支持，仅支持 OpenGL ES 3.2。**
 
-The renderer source code is managed as a Git submodule pointing to the `main` branch of:
+> [!IMPORTANT]
+> **关于 ANGLE 支持**
+>
+> 本 Fork 版本**不支持启用 ANGLE**。`enableANGLE` 配置项已被移除，ANGLE 后端始终处于关闭状态。如需 ANGLE 支持，请使用 [官方版本](https://github.com/MobileGL-Dev/MobileGlues)。
 
-- **Repository**: [EternityQwQ/MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main)
+---
 
-To clone this repository with the submodule, run:
+## 源码
+
+本仓库为 Android 插件项目，渲染器**源码**位于子模块仓库：
+
+- **源码仓库**：[EternityQwQ/MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main)
+
+渲染器源码以 Git submodule 形式引入，指向上述仓库的 `main` 分支。
+
+### 克隆与子模块
+
+克隆本仓库及子模块：
 
 ```bash
 git clone --recursive <this-repo-url>
 ```
 
-If the repository is already cloned, initialize and update the submodule:
+若已克隆本仓库，初始化并更新子模块：
 
 ```bash
 git submodule update --init --recursive
 ```
 
-To sync the submodule to the latest commit on `main`:
+同步子模块到 `main` 分支最新提交：
 
 ```bash
 git submodule update --remote --recursive
@@ -38,32 +56,31 @@ git submodule update --remote --recursive
 
 ## Build
 
-The plugin is built with Gradle. After cloning, ensure the Android SDK and NDK are configured, then run:
+插件使用 Gradle 构建。克隆后请确保已配置 Android SDK 与 NDK，然后运行：
 
 ```bash
 ./gradlew assembleRelease
 ```
 
-The built APK will be located in `app/build/outputs/apk/release/`.
+构建产物位于 `app/build/outputs/apk/release/`。
 
 License
 ====
-MobileGLES is licensed under **GNU LGPL-2.1 License**.
+MobileGLESWrapper is licensed under **GNU LGPL-2.1 License**.
 
 Please see [LICENSE](./LICENSE).
 
 Third party components
 ====
-Please see the [MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main) repository for information about third party components used by the renderer.
+请参阅 [MobileGLES-Wrapper 源码仓库](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main) 了解渲染器所使用的第三方组件信息。
 
 Check signature of your release
 ====
-This portion is a guide to help you identify if your apk is an official release.
+本节用于帮助您识别 APK 是否为官方发布版本。
 
-In your Android build-tools, find `apksigner`. Then run the following command:
+在 Android build-tools 中找到 `apksigner`，然后运行以下命令：
 ```bash
-apksigner verify --print-certs path/to/MobileGLES-plugin.apk
+apksigner verify --print-certs path/to/MobileGLESWrapper-plugin.apk
 ```
 
-In order that you may want to check against public key file, `pub.cer` and `pub.pem` are also provided.
-You can use your utility as you like to check your apk against those files.
+此外，`pub.cer` 和 `pub.pem` 公钥文件也已提供，您可以使用任意工具对照这些文件校验 APK 签名。
