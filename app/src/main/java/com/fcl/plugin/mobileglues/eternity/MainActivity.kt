@@ -306,7 +306,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         invalidateOptionsMenu()
 
         binding.apply {
-            // 以下三项 UI 已禁用，不再注册监听器
+            // 以下 UI 已禁用，不再注册监听器
             // spinnerAngle.onItemSelectedListener = itemListener
             spinnerNoError.onItemSelectedListener = itemListener
             spinnerMultidrawMode.onItemSelectedListener = itemListener
@@ -316,7 +316,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             // switchExtCs.setOnCheckedChangeListener(checkedListener)
             switchExtTimerQuery.setOnCheckedChangeListener(checkedListener)
             switchExtDirectStateAccess.setOnCheckedChangeListener(checkedListener)
-            switchEnableFsr1.setOnCheckedChangeListener(checkedListener)
+            // switchEnableFsr1.setOnCheckedChangeListener(checkedListener) // UI 已禁用
         }
     }
 
@@ -428,13 +428,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             //     button = buttonView
             // )
 
-            R.id.switch_enable_fsr1 -> handleSwitchWithWarning(
-                isChecked = isChecked,
-                warningMsgRes = R.string.warning_fsr1_enable,
-                onConfirm = { config?.fsr1Setting = 1 },
-                onCancel = { config?.fsr1Setting = 0 },
-                button = buttonView
-            )
+            // R.id.switch_enable_fsr1 -> handleSwitchWithWarning( // UI 已禁用
+            //     isChecked = isChecked,
+            //     warningMsgRes = R.string.warning_fsr1_enable,
+            //     onConfirm = { config?.fsr1Setting = 1 },
+            //     onCancel = { config?.fsr1Setting = 0 },
+            //     button = buttonView
+            // )
 
             R.id.switch_ext_timer_query -> config?.enableExtTimerQuery = if (isChecked) 0 else 1
             R.id.switch_ext_direct_state_access -> config?.enableExtDirectStateAccess =

@@ -73,6 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toTopOf="@+id/text_option_no_error" />
 
@@ -171,6 +173,9 @@
                 android:id="@+id/switch_enable_fsr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
                 android:text="@string/option_enable_fsr1"
                 app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
