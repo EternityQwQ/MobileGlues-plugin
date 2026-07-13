@@ -1,0 +1,47 @@
+name: Submodule Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: false
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync submodule to latest commit on main
+        run: |
+          git submodule update --init --remote --recursive
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected. Submodule is up to date."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected. Submodule will be updated."
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git add MobileGlues
+          git commit -m "chore: sync MobileGlues submodule to latest commit on main"
+          git push
