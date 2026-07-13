@@ -1,8 +1,6 @@
 name: Submodule Sync
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -17,31 +15,52 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          submodules: false
+          submodules: recursive
 
       - name: Configure git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync submodule to latest commit on main
+      - name: Get current submodule commit
+        id: current
         run: |
-          git submodule update --init --remote --recursive
+          CURRENT=$(git ls-tree HEAD MobileGlues | awk '{print $3}')
+          echo "current_commit=$CURRENT" >> $GITHUB_OUTPUT
+          echo "Current submodule commit: $CURRENT"
 
-      - name: Check for changes
+      - name: Fetch latest commit from remote main
+        id: latest
+        run: |
+          cd MobileGlues
+          git fetch origin main
+          LATEST=$(git rev-parse origin/main)
+          echo "latest_commit=$LATEST" >> $GITHUB_OUTPUT
+          echo "Latest remote commit on main: $LATEST"
+
+      - name: Check for updates
         id: changes
         run: |
-          if git diff --quiet; then
+          if [ "${{ steps.current.outputs.current_commit }}" = "${{ steps.latest.outputs.latest_commit }}" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No changes detected. Submodule is up to date."
+            echo "Submodule is already up to date. No update needed."
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Changes detected. Submodule will be updated."
+            echo "Update available: ${{ steps.current.outputs.current_commit }} -> ${{ steps.latest.outputs.latest_commit }}"
           fi
+
+      - name: Update submodule to latest commit
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          cd MobileGlues
+          git checkout origin/main
 
       - name: Commit and push changes
         if: steps.changes.outputs.changed == 'true'
         run: |
           git add MobileGlues
-          git commit -m "chore: sync MobileGlues submodule to latest commit on main"
+          git commit -m "chore: update MobileGlues submodule to latest commit on main
+
+Update from ${{ steps.current.outputs.current_commit }}
+        to ${{ steps.latest.outputs.latest_commit }}"
           git push
