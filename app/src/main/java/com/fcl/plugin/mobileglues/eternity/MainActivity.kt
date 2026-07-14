@@ -1,4 +1,4 @@
-package com.fcl.plugin.mobileglues
+package com.fcl.plugin.mobileglues.eternity
 
 import android.Manifest
 import android.content.DialogInterface
@@ -37,10 +37,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.fcl.plugin.mobileglues.databinding.ActivityMainBinding
-import com.fcl.plugin.mobileglues.settings.MGConfig
-import com.fcl.plugin.mobileglues.utils.Constants
-import com.fcl.plugin.mobileglues.utils.toast
+import com.fcl.plugin.mobileglues.eternity.databinding.ActivityMainBinding
+import com.fcl.plugin.mobileglues.eternity.settings.MGConfig
+import com.fcl.plugin.mobileglues.eternity.utils.Constants
+import com.fcl.plugin.mobileglues.eternity.utils.toast
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         setContentView(binding.root)
         setSupportActionBar(binding.appBar)
         setupSpinners()
+        setupDisabledControls()
 
         binding.openOptions.setOnClickListener {
             if (hasMgDirectoryAccess()) {
@@ -177,6 +178,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
         binding.spinnerCustomGlVersion.adapter =
             ArrayAdapter(this, R.layout.spinner, ArrayList(glVersionMap.keys))
+    }
+
+    // ---- 禁用控件交互 ----
+    // XML 的 enabled/clickable/focusable 对 Spinner 下拉点击无效，
+    // 需通过 onTouchListener 拦截触摸事件才能真正阻止展开下拉选项。
+    private fun setupDisabledControls() {
+        // 拦截触摸事件，阻止 ANGLE、Depth Clear 修复 Spinner 展开下拉
+        val touchBlocker = View.OnTouchListener { _, _ -> true }
+        binding.spinnerAngle.setOnTouchListener(touchBlocker)
+        binding.angleClearWorkaround.setOnTouchListener(touchBlocker)
+        // 拦截 FSR1、ARB_compute_shader 开关的滑动与点击
+        binding.switchEnableFsr1.setOnTouchListener(touchBlocker)
+        binding.switchExtCs.setOnTouchListener(touchBlocker)
     }
 
     // ---- 权限检查 ----
@@ -306,16 +320,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         invalidateOptionsMenu()
 
         binding.apply {
-            spinnerAngle.onItemSelectedListener = itemListener
+            // 以下 UI 已禁用，不再注册监听器
+            // spinnerAngle.onItemSelectedListener = itemListener
             spinnerNoError.onItemSelectedListener = itemListener
             spinnerMultidrawMode.onItemSelectedListener = itemListener
             spinnerCustomGlVersion.onItemSelectedListener = itemListener
-            angleClearWorkaround.onItemSelectedListener = itemListener
+            // angleClearWorkaround.onItemSelectedListener = itemListener
 
-            switchExtCs.setOnCheckedChangeListener(checkedListener)
+            // switchExtCs.setOnCheckedChangeListener(checkedListener)
             switchExtTimerQuery.setOnCheckedChangeListener(checkedListener)
             switchExtDirectStateAccess.setOnCheckedChangeListener(checkedListener)
-            switchEnableFsr1.setOnCheckedChangeListener(checkedListener)
+            // switchEnableFsr1.setOnCheckedChangeListener(checkedListener) // UI 已禁用
         }
     }
 
@@ -352,11 +367,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         if (!isSpinnerInitialized || config == null) return
 
         when (adapterView.id) {
-            R.id.spinner_angle -> handleAngleSelection(position)
+            // R.id.spinner_angle -> handleAngleSelection(position) // UI 已禁用
             R.id.spinner_no_error -> config?.enableNoError = position
             R.id.spinner_multidraw_mode -> config?.multidrawMode = position
             R.id.spinner_custom_gl_version -> handleCustomGLVersionSelection(position)
-            R.id.angle_clear_workaround -> handleAngleClearWorkaroundSelection(position)
+            // R.id.angle_clear_workaround -> handleAngleClearWorkaroundSelection(position) // UI 已禁用
         }
     }
 
@@ -419,21 +434,21 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         if (config == null) return
 
         when (buttonView.id) {
-            R.id.switch_ext_cs -> handleSwitchWithWarning(
-                isChecked = isChecked,
-                warningMsgRes = R.string.warning_ext_cs_enable,
-                onConfirm = { config?.enableExtComputeShader = 1 },
-                onCancel = { config?.enableExtComputeShader = 0 },
-                button = buttonView
-            )
+            // R.id.switch_ext_cs -> handleSwitchWithWarning( // UI 已禁用，默认启用
+            //     isChecked = isChecked,
+            //     warningMsgRes = R.string.warning_ext_cs_enable,
+            //     onConfirm = { config?.enableExtComputeShader = 1 },
+            //     onCancel = { config?.enableExtComputeShader = 0 },
+            //     button = buttonView
+            // )
 
-            R.id.switch_enable_fsr1 -> handleSwitchWithWarning(
-                isChecked = isChecked,
-                warningMsgRes = R.string.warning_fsr1_enable,
-                onConfirm = { config?.fsr1Setting = 1 },
-                onCancel = { config?.fsr1Setting = 0 },
-                button = buttonView
-            )
+            // R.id.switch_enable_fsr1 -> handleSwitchWithWarning( // UI 已禁用
+            //     isChecked = isChecked,
+            //     warningMsgRes = R.string.warning_fsr1_enable,
+            //     onConfirm = { config?.fsr1Setting = 1 },
+            //     onCancel = { config?.fsr1Setting = 0 },
+            //     button = buttonView
+            // )
 
             R.id.switch_ext_timer_query -> config?.enableExtTimerQuery = if (isChecked) 0 else 1
             R.id.switch_ext_direct_state_access -> config?.enableExtDirectStateAccess =
@@ -520,7 +535,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         }.start()
     }
 
-    // ---- 删除 MobileGlues ----
+    // ---- 删除 MobileGLES ----
     private fun showRemoveConfirmationDialog() {
         showCountdownWarningDialog(
             R.string.remove_mg_files_message,

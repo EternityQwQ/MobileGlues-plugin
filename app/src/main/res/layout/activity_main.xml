@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="@string/option_angle"
+                android:textColor="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@+id/spinner_angle"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,6 +73,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:alpha="0.5"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toTopOf="@+id/text_option_no_error" />
 
@@ -132,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="@string/option_angle_clear_workaround"
+                android:textColor="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@+id/angle_clear_workaround"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -140,6 +146,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:alpha="0.5"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toTopOf="@+id/switch_ext_cs" />
 
@@ -147,6 +157,7 @@
                 android:id="@+id/switch_ext_cs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="@string/option_ext_cs"
                 app:layout_constraintBottom_toTopOf="@+id/switch_ext_timer_query" />
 
@@ -168,6 +179,9 @@
                 android:id="@+id/switch_enable_fsr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
                 android:text="@string/option_enable_fsr1"
                 app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

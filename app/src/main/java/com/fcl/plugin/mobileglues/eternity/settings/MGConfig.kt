@@ -1,7 +1,7 @@
-package com.fcl.plugin.mobileglues.settings
+package com.fcl.plugin.mobileglues.eternity.settings
 
 import android.content.Context
-import com.fcl.plugin.mobileglues.utils.Constants
+import com.fcl.plugin.mobileglues.eternity.utils.Constants
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 /**
- * MobileGlues 配置类。
+ * MobileGLES 配置类。
  */
 class MGConfig private constructor(val context: Context, private var isInitializing: Boolean) {
 
@@ -20,7 +20,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
 
     // ---- 配置字段（UI 触发变更后自动保存） ----
 
-    var enableANGLE: Int = 1
+    var enableANGLE: Int = 0
         set(value) {
             if (field != value) {
                 field = value; saveIfReady()
@@ -41,7 +41,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             }
         }
 
-    var enableExtComputeShader: Int = 0
+    var enableExtComputeShader: Int = 1
         set(value) {
             if (field != value) {
                 field = value; saveIfReady()
@@ -164,14 +164,15 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         private fun MGConfig.applyFromJson(obj: JsonObject) {
             fun JsonObject.int(key: String, default: Int) = get(key)?.asInt ?: default
 
-            enableANGLE = obj.int("enableANGLE", 1)
+            // 以下三项已禁用 UI，始终使用默认值，不再从配置文件读取
+            // enableANGLE = obj.int("enableANGLE", 1)
             enableNoError = obj.int("enableNoError", 0)
             enableExtTimerQuery = obj.int("enableExtTimerQuery", 1)
-            enableExtComputeShader = obj.int("enableExtComputeShader", 0)
+            // enableExtComputeShader = obj.int("enableExtComputeShader", 0)
             enableExtDirectStateAccess = obj.int("enableExtDirectStateAccess", 0)
             maxGlslCacheSize = obj.int("maxGlslCacheSize", 32)
             multidrawMode = obj.int("multidrawMode", 0)
-            angleDepthClearFixMode = obj.int("angleDepthClearFixMode", 0)
+            // angleDepthClearFixMode = obj.int("angleDepthClearFixMode", 0)
             customGLVersion = obj.int("customGLVersion", 0)
             fsr1Setting = obj.int("fsr1Setting", 0)
         }

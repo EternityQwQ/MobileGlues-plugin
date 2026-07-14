@@ -1,4 +1,4 @@
-package com.fcl.plugin.mobileglues.utils
+package com.fcl.plugin.mobileglues.eternity.utils
 
 import android.os.Environment
 

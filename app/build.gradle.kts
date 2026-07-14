@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.fcl.plugin.mobileglues"
+    namespace = "com.fcl.plugin.mobileglues.eternity"
     compileSdk = 36
 
     ndkVersion = "27.3.13750724"
 
     defaultConfig {
-        applicationId = "com.fcl.plugin.mobileglues"
+        applicationId = "com.fcl.plugin.mobileglues.eternity"
         minSdk = 26
         targetSdk = 36
         versionCode = 1020
@@ -39,9 +39,9 @@ android {
         }
 
         configureEach {
-            resValue("string","app_name","MobileGlues")
+            resValue("string","app_name","MobileGLES")
 
-            manifestPlaceholders["des"] = "MobileGlues (OpenGL 4.0, 1.17+)"
+            manifestPlaceholders["des"] = "MobileGLES (OpenGL 4.0, 1.17+)"
             manifestPlaceholders["renderer"] = "MobileGlues:libmobileglues.so:libmobileglues.so"
 
             manifestPlaceholders["minMCVer"] = "1.17"

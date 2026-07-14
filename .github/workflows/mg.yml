@@ -1,4 +1,4 @@
-name: MobileGlues
+name: MobileGLES
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
           echo "ndk.dir=$ANDROID_HOME/ndk/27.3.13750724" >> local.properties
           "$ANDROID_HOME/cmake/3.31.6/bin/cmake" --version
 
-      - name: Patch MobileGlues submodule CMake version
+      - name: Patch MobileGLES submodule CMake version
         run: |
           # Submodule pins cmake version = "3.22.1" which is too old for its own
           # CMakeLists.txt (requires 3.28.0+). Bump to installed 3.31.6.
