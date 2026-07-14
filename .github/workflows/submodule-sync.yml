@@ -59,8 +59,5 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: |
           git add MobileGlues
-          git commit -m "chore: update MobileGlues submodule to latest commit on main
-
-Update from ${{ steps.current.outputs.current_commit }}
-        to ${{ steps.latest.outputs.latest_commit }}"
+          git commit -m "chore: update MobileGlues submodule to latest commit on main (${{ steps.current.outputs.current_commit }} -> ${{ steps.latest.outputs.latest_commit }})"
           git push
