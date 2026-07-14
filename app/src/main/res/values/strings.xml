@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MobileGLES</string>
 
+    <string name="info_unofficial_disclaimer">⚠️ This is an unofficial version.</string>
+
     <string name="info_author" translatable="false">Swung, BZLZHH, Tungsten, EternityQwQ</string>
     <string name="info_copyright" translatable="false">GNU LGPL-2.1 License</string>
     <string name="info_launcher" translatable="false">Fold Craft Launcher (>=1.2.0.5)\nZalith Launcher (>=1.4.0)\nPojav Glow·Worm (>=20250211)</string>

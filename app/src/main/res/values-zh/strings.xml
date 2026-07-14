@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">MobileGLES</string>
 
+    <string name="info_unofficial_disclaimer">⚠️ 此版本为非官方版本。</string>
+
     <string name="view_version">版本：</string>
     <string name="view_author">开发者：</string>
     <string name="view_copyright">开源许可证：</string>

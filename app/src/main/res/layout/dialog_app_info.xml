@@ -20,12 +20,24 @@
             app:constraint_referenced_ids="text_view_version, text_view_author, text_view_launcher, text_view_copyright, text_view_logo, text_view_gl_info" />
 
         <TextView
+            android:id="@+id/text_unofficial_disclaimer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/info_unofficial_disclaimer"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/text_view_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/view_version"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_unofficial_disclaimer" />
 
         <TextView
             android:id="@+id/info_version"
