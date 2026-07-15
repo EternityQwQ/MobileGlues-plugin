@@ -30,7 +30,7 @@ MobileGLESWrapper Plugin
 
 本仓库为 Android 插件项目，渲染器**源码**位于子模块仓库：
 
-- **源码仓库**：[EternityQwQ/MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/tree/main)
+- **源码仓库**：[EternityQwQ/MobileGLES-Wrapper](https://github.com/EternityQwQ/MobileGLES-Wrapper/)
 
 渲染器源码以 Git submodule 形式引入，指向上述仓库的 `main` 分支。
 
