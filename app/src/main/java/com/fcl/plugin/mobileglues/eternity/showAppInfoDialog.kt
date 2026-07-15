@@ -26,7 +26,7 @@ fun showAppInfoDialog(context: Context, config: MGConfig?) {
         }
         .setPositiveButton(R.string.dialog_github) { _, _ ->
             context.startActivity(
-                Intent(Intent.ACTION_VIEW, "https://github.com/MobileGL-Dev/MobileGlues-release".toUri())
+                Intent(Intent.ACTION_VIEW, "https://github.com/EternityQwQ/MobileGLES-plugin".toUri())
             )
         }
         .show()
