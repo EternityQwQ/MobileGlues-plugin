@@ -74,13 +74,13 @@
     <string name="md_home_untuned_action">Run benchmark</string>
 
     <string name="md_angle_title">Borrow ANGLE from a launcher</string>
-    <string name="md_angle_intro">Your settings run MobileGlues on ANGLE, but ANGLE ships with the launcher rather than with this app. To measure the driver the game actually uses, the benchmark must load ANGLE from an installed launcher.</string>
+    <string name="md_angle_intro">Your settings run MobileGLES on ANGLE, but ANGLE ships with the launcher rather than with this app. To measure the driver the game actually uses, the benchmark must load ANGLE from an installed launcher.</string>
     <string name="md_angle_trust"><![CDATA[<b>Choose a source you fully trust.</b> Its native code will be loaded into this app\'s process and run with this app\'s permissions. Select only a launcher you installed yourself from a trusted source.]]></string>
     <string name="md_angle_source_version">version %1$s</string>
     <string name="md_angle_none">No installed launcher carrying ANGLE was found. Install one (Fold Craft Launcher or Zalith Launcher), or benchmark on the system driver — note that this is not the driver the game will use.</string>
     <string name="md_angle_skip">Use the system driver</string>
     <string name="md_angle_last_used">Last used</string>
-    <string name="md_glinfo_needs_angle">Read from the system driver. Your settings run the game on ANGLE, so the extensions and limits below are not the ones MobileGlues will see.</string>
+    <string name="md_glinfo_needs_angle">Read from the system driver. Your settings run the game on ANGLE, so the extensions and limits below are not the ones MobileGLES will see.</string>
     <string name="md_glinfo_borrow">Borrow ANGLE and read again</string>
     <string name="md_glinfo_borrowed">Read through ANGLE borrowed from a launcher.</string>
     <string name="md_glinfo_borrow_ineffective">The borrowed ANGLE was not used (device unsupported, or it failed to load); this page describes the system driver.</string>
@@ -120,15 +120,15 @@
     <string name="dialog_github">GitHub source</string>
     <string name="repo_summary">Release, renderer, plugin</string>
     <string name="repo_release">Release repository</string>
-    <string name="repo_renderer" translatable="false">MobileGlues</string>
+    <string name="repo_renderer" translatable="false">MobileGLES</string>
     <string name="repo_plugin">Plugin</string>
     <string name="contributors_title">Contributors</string>
     <string name="contributors_intro">These people wrote code, fixed bugs, translated, or filled in the compatibility tables — every one of those is a contribution. All of them are listed and thanked here. Tap an avatar to open their GitHub profile.</string>
 
     <string name="third_party_title">Third-party open source</string>
     <string name="third_party_summary">Standing on these shoulders</string>
-    <string name="third_party_intro">MobileGlues is built with the open source projects below. Tap any of them to open its home page and read its own licence.</string>
-    <string name="third_party_renderer" translatable="false">MobileGlues</string>
+    <string name="third_party_intro">MobileGLES is built with the open source projects below. Tap any of them to open its home page and read its own licence.</string>
+    <string name="third_party_renderer" translatable="false">MobileGLES</string>
     <string name="third_party_plugin">Plugin</string>
     <string name="dialog_sponsor">Sponsor</string>
 
@@ -151,7 +151,7 @@
     <string name="warning_enabling_angle_clear_workaround">Enabling the ANGLE Depth Clear Workaround fixes the issue of the handheld items being obscured in vanilla Minecraft 1.21.5+, but may cause performance degradation. Are you sure you want to continue?</string>
     <string name="warning_fsr1_enable">Enabling the built-in FSR1 may cause image corruption on some drivers.\nIf your device is equipped with an Adreno GPU, please enable ANGLE to ensure correct rendering.\nIt is known that enabling this feature together with ANGLE can cause performance degradation, so please enable with caution.</string>
 
-    <string name="menu_item_reset">Revoke authorization or reset MobileGlues</string>
+    <string name="menu_item_reset">Revoke authorization or reset MobileGLES</string>
     <string name="reset_option_revoke">Revoke authorization only</string>
     <string name="reset_option_revoke_desc">Takes back storage access and the privacy policy acceptance. Everything in the MG folder is left as it is.</string>
     <string name="reset_option_remove">Revoke and delete everything</string>
@@ -159,26 +159,26 @@
     <string name="reset_option_remove_needs_auth">Deleting files requires storage access first.</string>
     <string name="warning_revoke_authorization">This takes back both the storage authorization and your acceptance of the privacy policy. Nothing in the MG folder is deleted, but you will have to accept the policy and grant access again before you can continue. Are you sure you want to continue?</string>
 
-    <string name="menu_item_remove">Remove MobileGlues related files</string>
-    <string name="remove_mg_files_message"><![CDATA[This action deletes every file MobileGlues and this plugin have created for themselves in the MG folder. This includes:<br/><br/>
+    <string name="menu_item_remove">Remove MobileGLES related files</string>
+    <string name="remove_mg_files_message"><![CDATA[This action deletes every file MobileGLES and this plugin have created for themselves in the MG folder. This includes:<br/><br/>
  • <b>Configuration:</b> config.json, plus any leftover temporary write file or corrupt backup.<br/>
- • <b>Cache:</b> the GLSL cache MobileGlues builds at runtime (glsl_cache.tmp, used to speed up loading).<br/>
+ • <b>Cache:</b> the GLSL cache MobileGLES builds at runtime (glsl_cache.tmp, used to speed up loading).<br/>
  • <b>Logs and stats:</b> the runtime log (latest.log) and the launch-count file (stats.json).<br/><br/>
-Only these files — the ones MobileGlues and this plugin created themselves — are deleted; anything else you placed in the MG folder is left untouched. If the MG folder ends up empty afterward, the folder itself is removed too.<br/><br/>
-Please note, this action is <b><font color="@colorError">irreversible</font></b>. Once you click "OK", the files above will be permanently deleted and cannot be recovered. If you are going to use MobileGlues again in the future, you will need to reconfigure it.<br/><br/>
+Only these files — the ones MobileGLES and this plugin created themselves — are deleted; anything else you placed in the MG folder is left untouched. If the MG folder ends up empty afterward, the folder itself is removed too.<br/><br/>
+Please note, this action is <b><font color="@colorError">irreversible</font></b>. Once you click "OK", the files above will be permanently deleted and cannot be recovered. If you are going to use MobileGLES again in the future, you will need to reconfigure it.<br/><br/>
 <b><font color="@colorError">Are you sure you want to continue?</font></b>]]></string>
     <string name="ok">OK</string>
     <string name="ok_with_countdown">OK (%d s)</string>
-    <string name="removing_mobileglues">Removing MobileGlues…</string>
+    <string name="removing_mobileglues">Removing MobileGLES…</string>
     <string name="remove_failed">Remove failed: %s</string>
     <string name="remove_complete_title">Removal Complete</string>
-    <string name="remove_complete_message">MobileGlues related files have been completely removed.\nIf you need to completely remove MobileGlues from your device, please uninstall this software.\n\nThank you for using MobileGlues — you are welcome back any time.</string>
+    <string name="remove_complete_message">MobileGLES related files have been completely removed.\nIf you need to completely remove MobileGLES from your device, please uninstall this software.\n\nThank you for using MobileGLES — you are welcome back any time.</string>
     <string name="revoke_complete_title">Authorization revoked</string>
-    <string name="revoke_complete_message">Storage access and the privacy policy acceptance have both been taken back. Everything in the MG folder is left as it is.\n\nThank you for using MobileGlues — you are welcome back any time.</string>
+    <string name="revoke_complete_message">Storage access and the privacy policy acceptance have both been taken back. Everything in the MG folder is left as it is.\n\nThank you for using MobileGLES — you are welcome back any time.</string>
     <string name="exit">Exit</string>
-    <string name="info_mg_info">MobileGlues Info</string>
+    <string name="info_mg_info">MobileGLES Info</string>
     <string name="button_view_gl_info">Check</string>
-    <string name="dialog_mg_gl_info_title">MobileGlues Info</string>
+    <string name="dialog_mg_gl_info_title">MobileGLES Info</string>
     <string name="dismiss">Dismiss</string>
 
     <string name="nav_home">Home</string>
@@ -198,14 +198,14 @@ Please note, this action is <b><font color="@colorError">irreversible</font></b>
     <string name="home_summary_cache">Cache %1$s</string>
 
     <string name="auth_choose_title">Storage access</string>
-    <string name="auth_choose_msg">MobileGlues stores its configuration in the MG folder of your internal storage. Choose how the app may access it:</string>
+    <string name="auth_choose_msg">MobileGLES stores its configuration in the MG folder of your internal storage. Choose how the app may access it:</string>
     <string name="auth_method_all_files">All files access</string>
     <string name="auth_method_all_files_desc">Direct read/write. You will be taken to the system settings to grant it.</string>
     <string name="auth_method_saf">Folder access (SAF)</string>
     <string name="auth_method_saf_desc">Grant only the MG folder via the system file picker.</string>
     <string name="auth_guide_saf_title">Grant the MG folder</string>
     <string name="auth_guide_saf_msg">The system file picker will open next. In the root of your internal storage, find the MG folder (create it with the picker\'s “New folder” button if it does not exist), open it, then tap “Use this folder”.</string>
-    <string name="auth_wrong_folder">That folder is not named “MG”. MobileGlues reads a fixed path (/sdcard/MG), so please pick the MG folder.</string>
+    <string name="auth_wrong_folder">That folder is not named “MG”. MobileGLES reads a fixed path (/sdcard/MG), so please pick the MG folder.</string>
 
     <string name="settings_gate_title">Storage permission required</string>
     <string name="settings_gate_msg">Grant storage access to view and modify renderer settings.</string>
@@ -227,13 +227,13 @@ Please note, this action is <b><font color="@colorError">irreversible</font></b>
     <string name="info_danger_zone">Danger zone</string>
     <string name="info_version_label">Version</string>
 
-    <string name="gl_info_loading">Querying MobileGlues GL info…</string>
+    <string name="gl_info_loading">Querying MobileGLES GL info…</string>
     <string name="copy">Copy</string>
     <string name="copied">Copied</string>
 
     <string name="privacy_intro">This app is free software that runs completely offline. Here is exactly what it touches.</string>
     <string name="privacy_files_title">Files it reads and writes</string>
-    <string name="privacy_files_body">Only the MG folder in your internal storage: config.json (your renderer settings), stats.json (how many times a game has loaded the renderer), glsl_cache.tmp (shader cache) and MobileGlues log files. Nothing outside that folder is read, modified or deleted.</string>
+    <string name="privacy_files_body">Only the MG folder in your internal storage: config.json (your renderer settings), stats.json (how many times a game has loaded the renderer), glsl_cache.tmp (shader cache) and MobileGLES log files. Nothing outside that folder is read, modified or deleted.</string>
     <string name="privacy_permission_title">Why storage permission</string>
     <string name="privacy_permission_body">The renderer (a native library inside your game) reads /sdcard/MG directly, so this app needs a way to write the same folder. You choose between “All files access” and granting just the MG folder via the system file picker (SAF), and you can revoke either at any time in system settings.</string>
     <string name="privacy_local_title">What is stored locally</string>
@@ -251,8 +251,8 @@ Please note, this action is <b><font color="@colorError">irreversible</font></b>
     <string name="sponsor_channels_summary" translatable="false">爱发电, Buy Me a Coffee</string>
     <string name="sponsor_channels_msg">The project and each of the three developers have their own page. Pick whichever you like — they all count the same.</string>
 
-    <string name="sponsor_dialog_title">Support MobileGlues</string>
-    <string name="sponsor_dialog_msg">This is your %1$dth launch of MobileGlues. If it has been useful, you may buy the developers a coffee — entirely optional, and nothing is locked either way.</string>
+    <string name="sponsor_dialog_title">Support MobileGLES</string>
+    <string name="sponsor_dialog_msg">This is your %1$dth launch of MobileGLES. If it has been useful, you may buy the developers a coffee — entirely optional, and nothing is locked either way.</string>
     <string name="sponsor_action_donate">Buy them a coffee</string>
     <string name="sponsor_action_later">Maybe later</string>
     <string name="sponsor_confirm_title">A gentle question</string>

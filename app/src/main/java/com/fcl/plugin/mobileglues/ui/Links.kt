@@ -20,7 +20,7 @@ data class LinkEntry(val label: String, val url: String)
  * 相同，所以网址必须写出来。
  */
 val SponsorChannels = listOf(
-    LinkEntry("爱发电 · MobileGlues", "https://afdian.com/a/MobileGlues"),
+    LinkEntry("爱发电 · MobileGLES", "https://afdian.com/a/MobileGLES"),
     LinkEntry("Buy Me a Coffee · Swung", "https://www.buymeacoffee.com/Swung0x48"),
     LinkEntry("爱发电 · BZLZHH", "https://www.ifdian.net/a/bzlzhh"),
     LinkEntry("爱发电 · Tungsten", "https://afdian.net/a/tungs"),
@@ -31,15 +31,15 @@ val SponsorChannels = listOf(
 fun sourceRepositories(): List<LinkEntry> = listOf(
     LinkEntry(
         stringResource(R.string.repo_release),
-        "https://github.com/MobileGL-Dev/MobileGlues-release",
+        "https://github.com/MobileGL-Dev/MobileGLES-release",
     ),
     LinkEntry(
         stringResource(R.string.repo_renderer),
-        "https://github.com/MobileGL-Dev/MobileGlues",
+        "https://github.com/MobileGL-Dev/MobileGLES",
     ),
     LinkEntry(
         stringResource(R.string.repo_plugin),
-        "https://github.com/MobileGL-Dev/MobileGlues-plugin",
+        "https://github.com/MobileGL-Dev/MobileGLES-plugin",
     ),
 )
 

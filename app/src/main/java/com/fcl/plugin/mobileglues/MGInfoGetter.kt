@@ -10,10 +10,10 @@ object MGInfoGetter {
 
     external fun setenv(key: String, value: String, overwrite: Int): Int
 
-    external fun getMobileGluesGLInfo(): String
+    external fun getMobileGLESGLInfo(): String
 
     /**
-     * 查询 MobileGlues 的 GL 信息。
+     * 查询 MobileGLES 的 GL 信息。
      *
      * 这是一个阻塞调用：native 侧会 dlopen libmobileglues 并创建 EGL 上下文，必须放在后台线程。
      * [mgDirectory] 显式传入，而不是像以前那样从一个可变静态字段里读。
@@ -29,7 +29,7 @@ object MGInfoGetter {
         setenv("MG_DIR_PATH", mgDirectory.path, 1)
         // 空串等于没设：渲染器那边只认非空值，游戏进程里本来也不会有这个变量。
         setenv("MG_ANGLE_DIR", angleDirectory.orEmpty(), 1)
-        getMobileGluesGLInfo()
+        getMobileGLESGLInfo()
     } catch (e: Throwable) {
         "Error: ${e.message}"
     }

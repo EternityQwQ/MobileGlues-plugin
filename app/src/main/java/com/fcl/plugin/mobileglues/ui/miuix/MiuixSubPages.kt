@@ -249,4 +249,4 @@ private fun MiuixSubPage(
     }
 }
 
-private const val GL_INFO_CLIP_LABEL = "MobileGlues GL info"
+private const val GL_INFO_CLIP_LABEL = "MobileGLES GL info"

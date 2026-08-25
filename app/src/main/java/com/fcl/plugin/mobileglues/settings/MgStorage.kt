@@ -57,7 +57,7 @@ interface MgStorage {
     fun deleteGlslCache()
 
     /**
-     * 删除 MobileGlues 和本插件在 MG 目录下自己创建的全部文件（危险区域的「移除 MobileGlues」）。
+     * 删除 MobileGLES 和本插件在 MG 目录下自己创建的全部文件（危险区域的「移除 MobileGLES」）。
      *
      * 只动 [KNOWN_MG_FILE_NAMES] 里的文件，用户手动放进 MG 目录的其他东西不会被碰；
      * 删完之后目录若已经空了，会连目录一起删掉。
@@ -219,7 +219,7 @@ internal const val CORRUPT_BACKUP_SUFFIX = ".corrupt"
 private const val CONFIG_TEMP_FILE_NAME = CONFIG_FILE_NAME + ".tmp"
 
 /**
- * MobileGlues（native 库）和本插件会在 MG 目录下主动创建的全部文件名。
+ * MobileGLES（native 库）和本插件会在 MG 目录下主动创建的全部文件名。
  *
  * 「撤销并删除全部文件」只删这些——MG 目录是用户看得见的目录，谁都可能手动放点别的东西
  * 进去，那些文件不是我们创建的，也就没资格被我们删掉。
@@ -237,7 +237,7 @@ internal val KNOWN_MG_FILE_NAMES = listOf(
 /**
  * 先写临时文件再 rename。
  *
- * 同目录下的 rename 是原子的，所以读的一方（游戏里的 MobileGlues）要么看到旧内容，
+ * 同目录下的 rename 是原子的，所以读的一方（游戏里的 MobileGLES）要么看到旧内容，
  * 要么看到完整的新内容，不会看到写到一半的文件。
  */
 private fun File.writeAtomically(text: String) {

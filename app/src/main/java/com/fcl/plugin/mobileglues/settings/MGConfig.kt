@@ -7,7 +7,7 @@ import com.fcl.plugin.mobileglues.R
 /**
  * 一个会被原样写进 `MG/config.json` 的取值。
  *
- * [wire] 是磁盘上的整数，必须与 MobileGlues native 端 `config/settings.h` 中对应的枚举一致，
+ * [wire] 是磁盘上的整数，必须与 MobileGLES native 端 `config/settings.h` 中对应的枚举一致，
  * 并且永远不能修改——它已经存在于用户既有的配置文件里。
  */
 interface WireValue {
@@ -354,7 +354,7 @@ sealed interface GlslCacheSize {
 }
 
 /**
- * MobileGlues 的配置，一个不可变的值。
+ * MobileGLES 的配置，一个不可变的值。
  *
  * 它不知道文件、不知道 UI、也没有任何副作用：改配置就是 [copy]，落盘由 [MGConfigStore] 负责。
  * 这里的默认值是全 App 唯一的一份——[MGConfigCodec] 解析时的回落值也取自这里。

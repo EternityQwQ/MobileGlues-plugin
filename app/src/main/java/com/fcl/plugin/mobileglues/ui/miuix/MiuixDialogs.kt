@@ -202,7 +202,7 @@ fun MiuixDialogHost(controller: AppController) {
         show = resetPrompt,
         canDelete = auth.granted,
         onRevoke = controller::revokeAuthorization,
-        onRemove = controller::removeMobileGlues,
+        onRemove = controller::removeMobileGLES,
         onDismiss = controller::dismissResetPrompt,
     )
 

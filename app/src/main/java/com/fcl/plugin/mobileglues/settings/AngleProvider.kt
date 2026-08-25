@@ -20,7 +20,7 @@ data class AngleSource(
 /**
  * 找出设备上谁能借 ANGLE 给我们。
  *
- * ANGLE 不在本 App 里——它随启动器分发，MobileGlues 在游戏进程里能直接 dlopen 到它，
+ * ANGLE 不在本 App 里——它随启动器分发，MobileGLES 在游戏进程里能直接 dlopen 到它，
  * 是因为那时候进程属于启动器。本 App 自己 dlopen 渲染器跑分时没有这个便利：
  * [com.fcl.plugin.mobileglues.settings.AngleProvider] 就是用来补上这一段的。
  *
@@ -56,7 +56,7 @@ object AngleProvider {
      * 装了、并且两个库都齐全可读的启动器。
      *
      * 少一个都不算数：EGL 那个负责建上下文，GLESv2 那个负责画，只有一个的话
-     * MobileGlues 会一半走 ANGLE 一半走系统驱动，比干脆用不了还糟。
+     * MobileGLES 会一半走 ANGLE 一半走系统驱动，比干脆用不了还糟。
      */
     fun sources(context: Context): List<AngleSource> {
         val pm = context.packageManager

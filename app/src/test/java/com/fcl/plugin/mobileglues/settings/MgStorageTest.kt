@@ -9,8 +9,8 @@ import org.junit.rules.TemporaryFolder
 import java.io.File
 
 /**
- * `deleteAll()` 只能删 MobileGlues 和插件自己创建的文件——MG 目录是用户看得见的目录，
- * 谁都可能手动放点别的东西进去，那份东西不该被「移除 MobileGlues」连坐。
+ * `deleteAll()` 只能删 MobileGLES 和插件自己创建的文件——MG 目录是用户看得见的目录，
+ * 谁都可能手动放点别的东西进去，那份东西不该被「移除 MobileGLES」连坐。
  */
 class MgStorageTest {
 
@@ -27,7 +27,7 @@ class MgStorageTest {
     private fun newStorage() = DirectMgStorage(mgDirectory)
 
     @Test
-    fun `deleteAll removes only the files MobileGlues and the plugin create`() {
+    fun `deleteAll removes only the files MobileGLES and the plugin create`() {
         for (name in KNOWN_MG_FILE_NAMES) {
             File(mgDirectory, name).writeText("x")
         }

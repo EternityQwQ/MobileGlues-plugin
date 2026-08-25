@@ -117,7 +117,7 @@ static std::string create_context_and_query() {
             const GLubyte* ext = p_glGetStringi(GL_EXTENSIONS, (GLuint)i);
             if (ext) {
                 const char* extStr = reinterpret_cast<const char*>(ext);
-                if (strcmp(extStr, "GL_MG_mobileglues") == 0) g_MGQueryCapability.HasMobileGluesExt = true;
+                if (strcmp(extStr, "GL_MG_mobileglues") == 0) g_MGQueryCapability.HasMobileGLESExt = true;
                 if (strcmp(extStr, "GL_MG_backend_string_getter_access") == 0) g_MGQueryCapability.BackendStringGetterAccess = true;
                 if (strcmp(extStr, "GL_MG_settings_string_dump") == 0) g_MGQueryCapability.SettingsStringDump = true;
                 out_exts << "  " << reinterpret_cast<const char*>(ext) << "\n";
@@ -128,13 +128,13 @@ static std::string create_context_and_query() {
         out_exts << "Extensions: " << (exts ? reinterpret_cast<const char*>(exts) : "NULL") << "\n";
         if (exts) {
             const char* extStr = reinterpret_cast<const char*>(exts);
-            if (strstr(extStr, " GL_MG_mobileglues ")) g_MGQueryCapability.HasMobileGluesExt = true;
+            if (strstr(extStr, " GL_MG_mobileglues ")) g_MGQueryCapability.HasMobileGLESExt = true;
             if (strstr(extStr, " GL_MG_backend_string_getter_access ")) g_MGQueryCapability.BackendStringGetterAccess = true;
             if (strstr(extStr, " GL_MG_settings_string_dump ")) g_MGQueryCapability.SettingsStringDump = true;
         }
     }
 
-    out << "Is MobileGLES (>=1.3.3): " << (g_MGQueryCapability.HasMobileGluesExt ? "Yes\n" : "No\n");
+    out << "Is MobileGLES (>=1.3.3): " << (g_MGQueryCapability.HasMobileGLESExt ? "Yes\n" : "No\n");
 
     // Which driver actually answered. The loader is the only honest source: the
     // renderer string cannot be trusted (a system driver may itself be ANGLE),
@@ -207,7 +207,7 @@ static std::string create_context_and_query() {
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_fcl_plugin_mobileglues_MGInfoGetter_getMobileGluesGLInfo(JNIEnv *env,
+Java_com_fcl_plugin_mobileglues_MGInfoGetter_getMobileGLESGLInfo(JNIEnv *env,
                                                                           jobject thiz) {
     std::string res = create_context_and_query();
     printf("MobileGLES GL Info: \n%s", res.c_str());
@@ -310,7 +310,7 @@ JNIEXPORT jstring JNICALL
 Java_com_fcl_plugin_mobileglues_MGBench_runMultidrawBench(JNIEnv *env, jobject thiz,
                                                           jint startSections, jint maxSections) {
     std::string res = create_context_and_bench(startSections, maxSections);
-    printf("MobileGlues MultiDraw bench: \n%s", res.c_str());
+    printf("MobileGLES MultiDraw bench: \n%s", res.c_str());
     __android_log_print(ANDROID_LOG_INFO, "MGBench", "%s", res.c_str());
     return env->NewStringUTF(res.c_str());
 }

@@ -13,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import com.fcl.plugin.mobileglues.ui.AppController
 import com.fcl.plugin.mobileglues.ui.AuthFlowLauncher
-import com.fcl.plugin.mobileglues.ui.MobileGluesApp
+import com.fcl.plugin.mobileglues.ui.MobileGLESApp
 import kotlin.system.exitProcess
 
 /**
@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity(), AuthFlowLauncher {
         }
 
         controller = AppController(application as MGApplication, this, this)
-        setContent { MobileGluesApp(controller) }
+        setContent { MobileGLESApp(controller) }
         consumeHeadlessRequest(intent)
     }
 

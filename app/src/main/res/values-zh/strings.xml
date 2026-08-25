@@ -67,13 +67,13 @@
     <string name="md_home_untuned_action">立即测量</string>
 
     <string name="md_angle_title">从启动器借用 ANGLE</string>
-    <string name="md_angle_intro">您的设置会让 MobileGlues 运行于 ANGLE，而 ANGLE 随启动器分发，本应用不包含。要测量游戏实际使用的驱动，Benchmark 需从已安装的启动器中加载 ANGLE。</string>
+    <string name="md_angle_intro">您的设置会让 MobileGLES 运行于 ANGLE，而 ANGLE 随启动器分发，本应用不包含。要测量游戏实际使用的驱动，Benchmark 需从已安装的启动器中加载 ANGLE。</string>
     <string name="md_angle_trust"><![CDATA[<b>请选择完全信任的来源。</b>其原生代码将载入本应用进程，并以本应用的权限运行。请仅选择您自行安装、来源可信的启动器。]]></string>
     <string name="md_angle_source_version">版本 %1$s</string>
     <string name="md_angle_none">未找到自带 ANGLE 的已安装启动器。您可以安装一个（Fold Craft Launcher 或 Zalith Launcher），或直接在系统驱动上测量——但该驱动并非游戏实际使用的驱动。</string>
     <string name="md_angle_skip">使用系统驱动</string>
     <string name="md_angle_last_used">上次选择</string>
-    <string name="md_glinfo_needs_angle">此信息读取自系统驱动。您的设置会让游戏运行于 ANGLE，因此下列扩展与上限并非 MobileGlues 实际所见。</string>
+    <string name="md_glinfo_needs_angle">此信息读取自系统驱动。您的设置会让游戏运行于 ANGLE，因此下列扩展与上限并非 MobileGLES 实际所见。</string>
     <string name="md_glinfo_borrow">借用 ANGLE 重新读取</string>
     <string name="md_glinfo_borrowed">已借用启动器的 ANGLE 读取。</string>
     <string name="md_glinfo_borrow_ineffective">借用的 ANGLE 未生效（设备不支持或加载失败），本页描述的是系统驱动。</string>
@@ -114,7 +114,7 @@
 
     <string name="third_party_title">第三方开源项目</string>
     <string name="third_party_summary">站在这些项目的肩膀上</string>
-    <string name="third_party_intro">MobileGlues 用到了下面这些开源项目。点击任意一项可以打开它的主页，去看它自己的许可证原文。</string>
+    <string name="third_party_intro">MobileGLES 用到了下面这些开源项目。点击任意一项可以打开它的主页，去看它自己的许可证原文。</string>
     <string name="third_party_plugin">插件</string>
     <string name="dialog_sponsor">赞助我们</string>
 
@@ -137,7 +137,7 @@
     <string name="warning_enabling_angle_clear_workaround">启用 ANGLE Depth Clear 修复会修复 ANGLE 在 Minecraft 1.21.5+ 原版中的手持物品被遮挡的问题，但会导致性能下降，是否继续？</string>
     <string name="warning_fsr1_enable">启用内置的 FSR1 可能会在部分驱动下造成图像损坏。\n如果您的设备搭载了 Adreno GPU，请启用 ANGLE以确保渲染正常。\n已知此功能与 ANGLE 同时启用会导致性能下降，请谨慎启用。</string>
 
-    <string name="menu_item_reset">撤销授权或重置 MobileGlues</string>
+    <string name="menu_item_reset">撤销授权或重置 MobileGLES</string>
     <string name="reset_option_revoke">仅撤销授权</string>
     <string name="reset_option_revoke_desc">收回存储授权和隐私政策的同意，MG 目录里的配置文件保持原样。</string>
     <string name="reset_option_remove">撤销并删除全部文件</string>
@@ -145,27 +145,27 @@
     <string name="reset_option_remove_needs_auth">需要先授权才能删除文件。</string>
     <string name="warning_revoke_authorization">这会同时收回存储授权和您对隐私政策的同意。MG 目录里的配置文件不会被删除，但要重新同意隐私政策并重新授权之后才能继续使用。是否继续？</string>
 
-    <string name="menu_item_remove">移除 MobileGlues 相关文件</string>
-    <string name="remove_mg_files_message"><![CDATA[此操作将删除 MobileGlues 和本插件在 MG 目录下自己创建的全部文件。具体包括：<br/><br/>
+    <string name="menu_item_remove">移除 MobileGLES 相关文件</string>
+    <string name="remove_mg_files_message"><![CDATA[此操作将删除 MobileGLES 和本插件在 MG 目录下自己创建的全部文件。具体包括：<br/><br/>
  • <b>配置文件：</b> config.json，以及写入过程中可能残留的临时文件或损坏备份。<br/>
- • <b>缓存文件：</b> MobileGlues 运行时生成的 GLSL 缓存（glsl_cache.tmp，用于加快加载速度）。<br/>
+ • <b>缓存文件：</b> MobileGLES 运行时生成的 GLSL 缓存（glsl_cache.tmp，用于加快加载速度）。<br/>
  • <b>日志与统计：</b> 运行日志（latest.log）和启动次数统计（stats.json）。<br/><br/>
-只会删除以上这些由 MobileGlues 和本插件自己创建的文件，您手动放进 MG 目录的其他文件不会被触碰；删除完毕后，如果 MG 目录已经空了，目录本身也会一并删除。<br/><br/>
-请注意，此操作是<b><font color="@colorError">不可逆</font></b>的。 一旦您点击“确定”，上述文件将被永久删除，无法恢复。如果您在未来要重新使用 MobileGlues，您将需要重新配置 MobileGlues。<br/><br/>
+只会删除以上这些由 MobileGLES 和本插件自己创建的文件，您手动放进 MG 目录的其他文件不会被触碰；删除完毕后，如果 MG 目录已经空了，目录本身也会一并删除。<br/><br/>
+请注意，此操作是<b><font color="@colorError">不可逆</font></b>的。 一旦您点击“确定”，上述文件将被永久删除，无法恢复。如果您在未来要重新使用 MobileGLES，您将需要重新配置 MobileGLES。<br/><br/>
 <b><font color="@colorError">确定要继续吗？</font></b>]]></string>
     <string name="ok">确定</string>
     <string name="ok_with_countdown">确定 (%d 秒)</string>
-	<string name="removing_mobileglues">正在移除 MobileGlues…</string>
+	<string name="removing_mobileglues">正在移除 MobileGLES…</string>
     <string name="remove_failed">移除失败: %s</string>
     <string name="remove_complete_title">移除完成</string>
-    <string name="remove_complete_message">MobileGlues 相关文件已完全移除。\n若需进一步在您的设备上完全移除 MobileGlues，请卸载此软件。\n\n感谢您使用 MobileGlues，我们随时欢迎您回来~</string>
+    <string name="remove_complete_message">MobileGLES 相关文件已完全移除。\n若需进一步在您的设备上完全移除 MobileGLES，请卸载此软件。\n\n感谢您使用 MobileGLES，我们随时欢迎您回来~</string>
     <string name="revoke_complete_title">已撤销授权</string>
-    <string name="revoke_complete_message">存储授权和隐私政策的同意都已收回，MG 目录里的文件保持原样。\n\n感谢您使用 MobileGlues，我们随时欢迎您回来~</string>
+    <string name="revoke_complete_message">存储授权和隐私政策的同意都已收回，MG 目录里的文件保持原样。\n\n感谢您使用 MobileGLES，我们随时欢迎您回来~</string>
     <string name="exit">退出</string>
 
-    <string name="info_mg_info">MobileGlues 信息</string>
+    <string name="info_mg_info">MobileGLES 信息</string>
     <string name="button_view_gl_info">查看</string>
-    <string name="dialog_mg_gl_info_title">MobileGlues 信息</string>
+    <string name="dialog_mg_gl_info_title">MobileGLES 信息</string>
     <string name="dismiss">关闭</string>
 
     <string name="nav_home">首页</string>
@@ -184,14 +184,14 @@
     <string name="home_summary_cache">缓存 %1$s</string>
 
     <string name="auth_choose_title">存储授权</string>
-    <string name="auth_choose_msg">MobileGlues 把配置保存在内部存储的 MG 目录中，请选择应用的访问方式：</string>
+    <string name="auth_choose_msg">MobileGLES 把配置保存在内部存储的 MG 目录中，请选择应用的访问方式：</string>
     <string name="auth_method_all_files">所有文件访问</string>
     <string name="auth_method_all_files_desc">直接读写。将跳转到系统设置页授权。</string>
     <string name="auth_method_saf">SAF 目录授权</string>
     <string name="auth_method_saf_desc">通过系统文件选择器，仅授权 MG 目录。</string>
     <string name="auth_guide_saf_title">授权 MG 目录</string>
     <string name="auth_guide_saf_msg">接下来会打开系统文件选择器。请在内部存储根目录找到 MG 文件夹（不存在就用选择器的「新建文件夹」按钮创建一个），进入后点击「使用此文件夹」。</string>
-    <string name="auth_wrong_folder">选择的目录不是 MG。MobileGlues 读取的是固定路径（/sdcard/MG），请选择 MG 文件夹。</string>
+    <string name="auth_wrong_folder">选择的目录不是 MG。MobileGLES 读取的是固定路径（/sdcard/MG），请选择 MG 文件夹。</string>
 
     <string name="settings_gate_title">需要存储授权</string>
     <string name="settings_gate_msg">授权后才能查看和修改渲染器设置。</string>
@@ -211,13 +211,13 @@
     <string name="info_danger_zone">危险区域</string>
     <string name="info_version_label">版本</string>
 
-    <string name="gl_info_loading">正在查询 MobileGlues GL 信息…</string>
+    <string name="gl_info_loading">正在查询 MobileGLES GL 信息…</string>
     <string name="copy">复制</string>
     <string name="copied">已复制</string>
 
     <string name="privacy_intro">本应用是完全离线运行的自由软件。这里逐条列出它会碰什么。</string>
     <string name="privacy_files_title">读写哪些文件</string>
-    <string name="privacy_files_body">只有内部存储的 MG 目录：config.json（您的渲染器设置）、stats.json（渲染器被游戏加载的次数）、glsl_cache.tmp（着色器缓存）以及 MobileGlues 的日志文件。目录之外的任何文件都不会被读取、修改或删除。</string>
+    <string name="privacy_files_body">只有内部存储的 MG 目录：config.json（您的渲染器设置）、stats.json（渲染器被游戏加载的次数）、glsl_cache.tmp（着色器缓存）以及 MobileGLES 的日志文件。目录之外的任何文件都不会被读取、修改或删除。</string>
     <string name="privacy_permission_title">为什么需要存储权限</string>
     <string name="privacy_permission_body">渲染器（游戏内的原生库）直接读取 /sdcard/MG，所以本应用需要能写同一个目录。您可以在「所有文件访问」和「仅授权 MG 目录（SAF）」之间自行选择，并且随时能在系统设置中收回。</string>
     <string name="privacy_local_title">本地存了什么</string>
@@ -235,8 +235,8 @@
     <string name="sponsor_channels_summary">爱发电、Buy Me a Coffee</string>
     <string name="sponsor_channels_msg">项目和三位开发者各有各的收款页，挑一个就好，都一样。</string>
 
-    <string name="sponsor_dialog_title">支持 MobileGlues</string>
-    <string name="sponsor_dialog_msg">看起来您已经启动了 %1$d 次 MobileGlues！我们感谢您的使用，如果它帮上了忙，可以请开发者喝杯咖啡哦~完全自愿，不捐赠也没关系。</string>
+    <string name="sponsor_dialog_title">支持 MobileGLES</string>
+    <string name="sponsor_dialog_msg">看起来您已经启动了 %1$d 次 MobileGLES！我们感谢您的使用，如果它帮上了忙，可以请开发者喝杯咖啡哦~完全自愿，不捐赠也没关系。</string>
     <string name="sponsor_action_donate">去支持一下</string>
     <string name="sponsor_action_later">下次再说</string>
     <string name="sponsor_confirm_title">一个小小的确认</string>

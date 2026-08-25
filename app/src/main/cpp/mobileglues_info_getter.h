@@ -38,7 +38,7 @@ static PFN_glGetString p_glGetString = nullptr;
 static PFN_glGetStringi p_glGetStringi = nullptr;
 
 struct MGQueryCapability {
-    bool HasMobileGluesExt = false; // GL_MG_mobileglues
+    bool HasMobileGLESExt = false; // GL_MG_mobileglues
     bool BackendStringGetterAccess = false; // GL_MG_backend_string_getter_access
     bool SettingsStringDump = false; // GL_MG_settings_string_dump
 }g_MGQueryCapability;

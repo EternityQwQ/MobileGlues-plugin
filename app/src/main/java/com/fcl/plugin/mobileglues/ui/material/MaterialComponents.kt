@@ -116,7 +116,7 @@ fun MgConfirmDialog(request: ConfirmRequest) {
         properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = false),
         title = { Text(stringResource(request.titleRes)) },
         text = {
-            // 警告文案可能很长（移除 MobileGlues、自定义 GL 版本），对话框内部要能滚。
+            // 警告文案可能很长（移除 MobileGLES、自定义 GL 版本），对话框内部要能滚。
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                 if (request.messageIsHtml) {
                     Text(rememberHtmlAnnotatedString(request.message, MaterialTheme.colorScheme.error))

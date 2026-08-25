@@ -197,7 +197,7 @@ fun MaterialDialogHost(controller: AppController) {
         ResetDialog(
             canDelete = auth.granted,
             onRevoke = controller::revokeAuthorization,
-            onRemove = controller::removeMobileGlues,
+            onRemove = controller::removeMobileGLES,
             onDismiss = controller::dismissResetPrompt,
         )
     }
@@ -423,7 +423,7 @@ private fun ResetDialog(
     )
 }
 
-/** 不可取消的进度对话框（移除 MobileGlues 期间）。 */
+/** 不可取消的进度对话框（移除 MobileGLES 期间）。 */
 @Composable
 private fun ProgressDialog(text: String) {
     AlertDialog(

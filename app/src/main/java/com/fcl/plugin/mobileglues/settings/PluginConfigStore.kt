@@ -57,7 +57,7 @@ object SponsorPrompt {
 }
 
 /**
- * 本 App 自己的本地设置（与 MobileGlues 的 config.json 无关）。
+ * 本 App 自己的本地设置（与 MobileGLES 的 config.json 无关）。
  *
  * 用 SharedPreferences、不引新依赖。它记录的是「界面风格、授权方式、启动次数」这类
  * 本地偏好，所以必须放在存储权限门之上——未授权时设置页也不能是空白。

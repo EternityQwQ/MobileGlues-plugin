@@ -44,7 +44,7 @@ android {
             resValue("string","app_name","MobileGLES")
 
             manifestPlaceholders["des"] = "MobileGLES (OpenGL 4.0, 1.17+)"
-            manifestPlaceholders["renderer"] = "MobileGlues:libmobileglues.so:libmobileglues.so"
+            manifestPlaceholders["renderer"] = "MobileGLES:libmobileglues.so:libmobileglues.so"
 
             manifestPlaceholders["minMCVer"] = "1.17"
             manifestPlaceholders["maxMCVer"] = "" //为空则不限制 No restriction if empty

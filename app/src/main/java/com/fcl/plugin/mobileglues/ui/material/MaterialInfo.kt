@@ -22,7 +22,7 @@ import com.fcl.plugin.mobileglues.ui.AppSubPage
 /**
  * 信息页：应用信息、可核实的东西（GL 信息、隐私政策）、以及危险区域。
  *
- * 「移除 MobileGlues」从旧界面的溢出菜单搬到了这里——一个会删掉用户全部配置的操作
+ * 「移除 MobileGLES」从旧界面的溢出菜单搬到了这里——一个会删掉用户全部配置的操作
  * 不该藏在三个点后面。
  */
 @Composable

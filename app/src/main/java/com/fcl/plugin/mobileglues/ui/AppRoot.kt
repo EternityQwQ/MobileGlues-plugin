@@ -14,7 +14,7 @@ import com.fcl.plugin.mobileglues.ui.miuix.MiuixApp
  * 但它们吃进同一个 [AppController]，所以操作逻辑严格一致。
  */
 @Composable
-fun MobileGluesApp(controller: AppController) {
+fun MobileGLESApp(controller: AppController) {
     val style by controller.pluginConfig.uiStyle.collectAsStateWithLifecycle()
 
     // 跑分期间不许自动熄屏。一次跑分要到一分多钟，而全程没有任何触摸——正是系统认定

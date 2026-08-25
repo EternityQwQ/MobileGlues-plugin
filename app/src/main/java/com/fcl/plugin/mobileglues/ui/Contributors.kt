@@ -26,7 +26,7 @@ data class ContributorGroup(
  * 而隐私政策里承诺了没有这个权限，一份致谢名单不值得拿那条承诺去换。
  */
 val ContributorGroups = listOf(
-    // MobileGlues
+    // MobileGLES
     ContributorGroup(
         R.string.third_party_renderer,
         listOf(
@@ -39,7 +39,7 @@ val ContributorGroups = listOf(
             Contributor("crystall1nedev", R.drawable.avatar_crystall1nedev), // 1
         ),
     ),
-    // MobileGlues-plugin
+    // MobileGLES-plugin
     ContributorGroup(
         R.string.third_party_plugin,
         listOf(
@@ -51,7 +51,7 @@ val ContributorGroups = listOf(
             Contributor("MovTery", R.drawable.avatar_movtery), // 1
         ),
     ),
-    // MobileGlues-release
+    // MobileGLES-release
     ContributorGroup(
         R.string.repo_release,
         listOf(

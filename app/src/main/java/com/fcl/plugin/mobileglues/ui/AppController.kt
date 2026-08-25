@@ -103,7 +103,7 @@ sealed interface SponsorPromptState {
 
 /**
  * 一次「先问再改」的确认。倒计时结束后 [errorAccent] 让确认键变成警示色——
- * 和旧界面自定义 GL 版本 / 移除 MobileGlues 的行为一致。
+ * 和旧界面自定义 GL 版本 / 移除 MobileGLES 的行为一致。
  */
 class ConfirmRequest(
     @param:StringRes val titleRes: Int,
@@ -639,7 +639,7 @@ class AppController(
         .map { it != null && it.multidraw == MultidrawSettings.Default }
         .stateIn(scope, SharingStarted.Eagerly, false)
 
-    /** 借 ANGLE 是为了哪件事：跑分，还是查 MobileGlues 信息。 */
+    /** 借 ANGLE 是为了哪件事：跑分，还是查 MobileGLES 信息。 */
     sealed interface AngleUse {
         data class Bench(val target: BenchTarget) : AngleUse
         data object GlInfo : AngleUse
@@ -1172,7 +1172,7 @@ class AppController(
         }
     }
 
-    // ---- 移除 MobileGlues ----
+    // ---- 移除 MobileGLES ----
 
     private val mutableRemoving = MutableStateFlow(false)
     val removing: StateFlow<Boolean> = mutableRemoving.asStateFlow()
@@ -1187,7 +1187,7 @@ class AppController(
      */
     val farewell: StateFlow<Farewell?> = mutableFarewell.asStateFlow()
 
-    fun removeMobileGlues() {
+    fun removeMobileGLES() {
         mutableResetPrompt.value = false
         scope.launch {
             if (!confirm(
